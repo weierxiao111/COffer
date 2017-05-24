@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "剑指offer大数问题", "剑指offer大数问题\剑指offer大数问题.vcproj", "{14CD2673-8B2B-4710-A4FF-E500F0D0CB1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14CD2673-8B2B-4710-A4FF-E500F0D0CB1E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{14CD2673-8B2B-4710-A4FF-E500F0D0CB1E}.Debug|Win32.Build.0 = Debug|Win32
+		{14CD2673-8B2B-4710-A4FF-E500F0D0CB1E}.Release|Win32.ActiveCfg = Release|Win32
+		{14CD2673-8B2B-4710-A4FF-E500F0D0CB1E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
