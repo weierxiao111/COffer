@@ -78,22 +78,87 @@ bool DeleteNode(ListNode* &phead, ListNode *DelNode)
 	
 }
 
+ListNode *TailKNode(ListNode *phead, int k)
+{
+	if (NULL == phead || k <= 0)
+		return NULL;
+	ListNode *FastNode = phead;
+	ListNode *SlowNode = phead;
+
+	while (k-- > 1 )
+	{
+		FastNode = FastNode->_pNext;
+		if (NULL == FastNode)
+			return NULL;
+	}
+
+	while (FastNode->_pNext)
+	{
+		SlowNode = SlowNode->_pNext;
+		FastNode = FastNode->_pNext;
+	}
+	return SlowNode;
+}
+
+ListNode *ResverList(ListNode *phead)
+{
+	if (NULL == phead || NULL == phead->_pNext)
+		return phead;
+	ListNode *prev = NULL;
+	ListNode *pCur = phead;
+	ListNode *pnext = phead->_pNext;
+	while (pnext)
+	{
+		pCur->_pNext = prev;
+		prev = pCur;
+		pCur = pnext;
+		pnext = pnext->_pNext;
+	}
+	pCur->_pNext = prev;
+	return pCur;
+}
+
+ListNode *Merge(ListNode *phead1, ListNode *phead2)
+{
+	if (NULL == phead1)
+		return phead2;
+	if (NULL == phead2)
+		return phead1;
+
+	ListNode *newphead = NULL;
+	if (phead1->_data < phead2->_data)
+	{
+		newphead = phead1;
+		newphead->_pNext = Merge(phead1->_pNext, phead2);
+	}
+	else
+	{
+		newphead = phead2;
+		newphead->_pNext = Merge(phead1, phead2->_pNext);
+	}
+
+	return newphead;
+}
+
 int main()
 {
-	ListNode *pHead = NULL;
-	PushBack(pHead, 1);
-	PushBack(pHead, 2);
-	PushBack(pHead, 3);
-	PushBack(pHead, 4);
-	PushBack(pHead, 5);
-	PushBack(pHead, 6);
-	PushBack(pHead, 7);
-	PushBack(pHead, 8); 
-	PushBack(pHead, 9);
-	PrintTailToHead(pHead);
-	ListNode *pTemp = FindNode(pHead, 9);
-	DeleteNode(pHead, pTemp);
-	PrintTailToHead(pHead);
+	ListNode *pHead1 = NULL;
+	PushBack(pHead1, 1);
+	PushBack(pHead1, 3);
+	PushBack(pHead1, 5);
+	PushBack(pHead1, 6);
+	PushBack(pHead1, 8); 
+	PushBack(pHead1, 9);
+	ListNode *pHead2 = NULL;
+	PushBack(pHead2, 2);
+	PushBack(pHead2, 4);
+	PushBack(pHead2, 5);
+	PushBack(pHead2, 8);
+	PushBack(pHead2, 9);
+	PushBack(pHead2, 12);
+	PushBack(pHead2, 12);
+	ListNode *mergehead = Merge(pHead1, pHead2);
+	PrintTailToHead(mergehead);
 
 
 	return 0;
