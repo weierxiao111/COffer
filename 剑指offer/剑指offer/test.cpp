@@ -1,65 +1,54 @@
 #include <iostream>
 using namespace std;
-#include <stack>
-#include <stdlib.h>
-
-template <class T>
-class SQueue {
-public:
-	void Push(const T& value);
-	T Pop();
-private:
-	stack<T>  st1;
-	stack<T>  st2;
-};
-
-template <class T>
-T SQueue<T>::Pop()
+int Add(int num1, int num2)
 {
-	if (st2.size() <= 0)
+	if (num2 == 0)
+		return num1;
+	int temp = num1;
+	num1 = num1^num2;
+	num2 = (temp & num2)<< 1;
+	return Add(num1, num2);
+}
+
+class Temp {
+public:
+    Temp()
 	{
-		if (st1.size() == 0)
-		{
-			exit(1);
-		}
-		while ((st1.size() > 0))
-		{
-			T& top = st1.top();
-			st2.push(top);
-			st1.pop();
-		}
+		Num++;
+		Sum += Num;
+ 	}
+
+	static void  Init()
+	{
+		Num = 0;
+		Sum = 0;
 	}
 
-	T head = st2.top();
-	st2.pop();
-	return head;
+	static size_t  GetSum()
+	{
+		return Sum;
+	}
+private:
+	static size_t Num;
+	static size_t Sum;
+};
 
-}
+size_t Temp::Num = 0;
+size_t Temp::Sum = 0;
 
-template <class T>
-void SQueue<T>::Push(const T& value)
+size_t Sum_matain(size_t n)
 {
-	st1.push(value);
+	Temp::Init();
+	Temp* t = new Temp [n];
+	delete[]t;
+	return Temp::GetSum();
 }
+
+
 
 int main()
 {
-	SQueue<int> sq;
-	for (int i = 0; i < 10; ++i)
-	{
-		sq.Push(i);
-	}
-	for (int i = 0; i < 5; ++i)
-	{
-		cout << sq.Pop() << " ";
-	}
-
-	for (int i = 0; i < 5; ++i)
-	{
-		cout << sq.Pop() << " ";
-	}
-	cout << endl;
-
+	cout << Sum_matain(10) << endl;
 	system("pause");
 	return 0;
 }
