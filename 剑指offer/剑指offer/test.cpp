@@ -1,47 +1,4 @@
-#include <iostream>
-using namespace std;
 
-const int max_value = 6;
-void Probality(int num, int *proarr);
-void Probality(int num, int cur, int sum, int* proarr);
-void PrintProbablity(int n)
-{
-	if (n < 1)
-		return;
-	int maxProbality = max_value*n;
-	int *ProbalityArr = new int[maxProbality - n + 1];
-	/*memset(ProbalityArr, 0, sizeof(int)*(maxProbality - n + 1));*/
-	for (int j = n; j <= maxProbality; ++j)
-		ProbalityArr[j - n] = 0;
-
-	Probality(n, ProbalityArr);
-	float  total = pow(max_value, n);
-
-	for (int i = n; i <= maxProbality; ++i)
-	{
-		cout << "和为" << n << "的出现的概率为" << ProbalityArr[i - n] / total << " ";
-		cout << endl;
-	}
-	cout << endl;
-	delete []ProbalityArr;
-}
-
-void Probality(int num, int *proarr)
-{
-	for (int i = 1; i <= max_value; ++i)
-		Probality(num, num, i, proarr);
-}
-
-void Probality(int num, int cur, int sum, int* proarr)
-{
-	if (cur == 1)
-		proarr[sum - max_value]++;
-	else
-	{
-		for (int i = 1; i <= max_value; ++i)
-			Probality(num, cur-1, i+sum, proarr);
-	}
-}
 //int Add(int num1, int num2)
 //{
 //	if (num2 == 0)
@@ -85,11 +42,64 @@ void Probality(int num, int cur, int sum, int* proarr)
 //	delete[]t;
 //	return Temp::GetSum();
 //}
+#include <iostream>
+using namespace std;
+#include <assert.h>
+#include <stdlib.h>
 
+int numofone(int n);
+
+int fun(int n)
+{
+	int num = 0;
+	for (int i = 1; i <= n; ++i)
+		num += numofone(i);
+	return num;
+}
+
+int numofone(int n)
+{
+	int num = 0;
+	while (n)
+	{
+		if (n % 10 == 1)
+			num += 1;
+		n = n / 10;
+	}
+	return num;
+}
+
+size_t _numberHasOne(char* num);
+size_t numberHasOne(int num)
+{
+	if (num < 0)
+		return 0;
+
+	char *strnum = new char[50];
+	_itoa_s(num, strnum,50, 10);
+	size_t ret = _numberHasOne(strnum);
+	delete[]strnum;
+	return ret;
+}
+
+size_t _numberHasOne(char* num)
+{
+	if (NULL == num || *num == '\0')
+		return 0;
+	size_t len = strlen(num);
+	if (len == 1)
+		return 1;
+	size_t firstlen = 0;
+	if (*num == '1')
+		firstlen = atoi(num + 1) + 1;
+	else
+		firstlen = pow(10 , len - 1);
+	size_t secondlen = (*num - '0')*pow(10, len - 2)*(len-1);
+	return firstlen + secondlen+_numberHasOne(num + 1);
+}
 
 int main()
 {
-	PrintProbablity(3);
-	system("pause");
+	cout << numberHasOne(21345) << endl;
 	return 0;
 }
