@@ -42,64 +42,67 @@
 //	delete[]t;
 //	return Temp::GetSum();
 //}
+//#include <iostream>
+//using namespace std;
+//#include <assert.h>
+//#include <stdlib.h>
+//
+//int numofone(int n);
+//
+//int fun(int n)
+//{
+//	int num = 0;
+//	for (int i = 1; i <= n; ++i)
+//		num += numofone(i);
+//	return num;
+//}
+//
+//int numofone(int n)
+//{
+//	int num = 0;
+//	while (n)
+//	{
+//		if (n % 10 == 1)
+//			num += 1;
+//		n = n / 10;
+//	}
+//	return num;
+//}
+//
+//size_t _numberHasOne(char* num);
+//size_t numberHasOne(int num)
+//{
+//	if (num < 0)
+//		return 0;
+//
+//	char *strnum = new char[50];
+//	_itoa_s(num, strnum,50, 10);
+//	size_t ret = _numberHasOne(strnum);
+//	delete[]strnum;
+//	return ret;
+//}
+//
+//size_t _numberHasOne(char* num)
+//{
+//	if (NULL == num || *num == '\0')
+//		return 0;
+//	size_t len = strlen(num);
+//	if (len == 1)
+//		return 1;
+//	size_t firstlen = 0;
+//	if (*num == '1')
+//		firstlen = atoi(num + 1) + 1;
+//	else
+//		firstlen = pow(10 , len - 1);
+//	size_t secondlen = (*num - '0')*pow(10, len - 2)*(len-1);
+//	return firstlen + secondlen+_numberHasOne(num + 1);
+//}
 #include <iostream>
+#include "GetKsum.hpp"
 using namespace std;
-#include <assert.h>
-#include <stdlib.h>
-
-int numofone(int n);
-
-int fun(int n)
-{
-	int num = 0;
-	for (int i = 1; i <= n; ++i)
-		num += numofone(i);
-	return num;
-}
-
-int numofone(int n)
-{
-	int num = 0;
-	while (n)
-	{
-		if (n % 10 == 1)
-			num += 1;
-		n = n / 10;
-	}
-	return num;
-}
-
-size_t _numberHasOne(char* num);
-size_t numberHasOne(int num)
-{
-	if (num < 0)
-		return 0;
-
-	char *strnum = new char[50];
-	_itoa_s(num, strnum,50, 10);
-	size_t ret = _numberHasOne(strnum);
-	delete[]strnum;
-	return ret;
-}
-
-size_t _numberHasOne(char* num)
-{
-	if (NULL == num || *num == '\0')
-		return 0;
-	size_t len = strlen(num);
-	if (len == 1)
-		return 1;
-	size_t firstlen = 0;
-	if (*num == '1')
-		firstlen = atoi(num + 1) + 1;
-	else
-		firstlen = pow(10 , len - 1);
-	size_t secondlen = (*num - '0')*pow(10, len - 2)*(len-1);
-	return firstlen + secondlen+_numberHasOne(num + 1);
-}
-
 int main()
 {
-	cout << numberHasOne(21345) << endl;
+	int arr[] = { 1,2,3,4,5,6,6,6,6,6 };
+	cout << GetNumberOfK(arr, sizeof(arr) / sizeof(arr[0]), 6) << endl;
 	return 0;
 }
