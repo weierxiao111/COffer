@@ -415,9 +415,9 @@ void Test1()
 	printList(Phead1);
 
 }
-
-int main()
-{
-	Test1();
-	return 0;
-}
+//
+//int main()
+//{
+//	Test1();
+//	return 0;
+//}
