@@ -74,6 +74,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -119,9 +120,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="GetKsum.hpp" />
+    <ClCompile Include="二叉树相关面试题_非查找树.cpp" />
+    <ClCompile Include="单链表相关面试题.cpp" />
+    <ClCompile Include="面试题14.cpp" />
+    <ClCompile Include="面试题10.cpp" />
+    <ClCompile Include="面试题11.cpp" />
+    <ClCompile Include="面试题12.cpp" />
+    <ClCompile Include="面试题20.cpp" />
+    <ClCompile Include="面试题一.cpp" />
+    <ClCompile Include="面试题九.cpp" />
+    <ClCompile Include="面试题六.cpp" />
+    <ClCompile Include="面试题四.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

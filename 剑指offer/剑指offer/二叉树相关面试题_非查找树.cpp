@@ -26,10 +26,10 @@ public:
 		:_pRoot(NULL)
 	{}
 
-	BinaryTree(const T* arr, const T& invalied)  //传入一个顺序为前序的数组，invalied意味节点为NULL
+	BinaryTree(const T* arr, int sz,const T& invalied)  //传入一个顺序为前序的数组，invalied意味节点为NULL
 	{
 		int index = 0;
-		createTree(arr, _pRoot, strlen(arr), invalied, index);
+		createTree(arr, _pRoot, sz, invalied, index);
 	}
 
 	BinaryTree(const BinaryTree<T>& t)
@@ -37,6 +37,10 @@ public:
 		_pRoot = _CopyTree(t._pRoot);
 	}
 
+	Node* GetRoot()
+	{
+		return _pRoot;
+	}
 	BinaryTree<T>& operator=(const BinaryTree<T>& t) 
 	{
 		_DestroyTree(_pRoot);
@@ -182,11 +186,54 @@ TreeNode<int> *Construct(int* prearr, int *inarr, int sz)
 	return _Construct(prearr, prearr + sz - 1, inarr, inarr + sz - 1);
 }
 
+template <class T>
+bool IsSubTree(TreeNode<T> *root1, TreeNode<T> *root2)
+{
+	if (root2 == NULL)
+		return true;
+	if (root1 == NULL)
+		return false;
+	if (root1->_value == root2->_value)
+		return (IsSubTree(root1->_pLeft, root2->_pLeft) &&
+			IsSubTree(root1->_pRight, root2->_pRight));
+	else
+		return false;
+}
+
+template <class T>
+bool HasSubTree(TreeNode<T> *root1, TreeNode<T> *root2)
+{
+	bool ret = false;
+	if (root1 != NULL && root2 != NULL)
+	{
+		if (root1->_value == root2->_value)
+			ret = IsSubTree(root1, root2);
+		if (!ret)
+			ret = HasSubTree(root1->_pLeft, root2);
+		if (!ret)
+			ret = HasSubTree(root1->_pRight, root2);
+	}
+	return ret;
+}
+
+void MirrorTree(TreeNode<int>* root)
+{
+	if (NULL != root)
+	{
+		swap(root->_pLeft, root->_pRight);
+		MirrorTree(root->_pLeft);
+		MirrorTree(root->_pRight);
+	}
+}
+//
 //int main()
 //{
-//	int prearr[] = {1,2,4,7,3,5,6,8};
-//	int ordarr[] = {4,7,2,1,5,3,8,6};
+//	int arr[] = {8,8,9,0,0,2,4,0,0,7,0,0,7};
+//	BinaryTree<int> tree1(arr, sizeof(arr)/sizeof(arr[0]), 0);
+//	MirrorTree(tree1.GetRoot());
+//	int arr2[] = {8,2};
+//	BinaryTree<int> tree2(arr2, sizeof(arr2) / sizeof(arr2[0]), 0);
+//	cout<< HasSubTree(tree1.GetRoot(), tree2.GetRoot())<<endl;
 //
-//	TreeNode<int> *tree = Construct(prearr, ordarr, 8);
-//	return 0;
+//    return 0;
 //}
