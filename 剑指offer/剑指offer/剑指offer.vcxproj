@@ -120,6 +120,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="二叉搜索树相关题目.cpp" />
     <ClCompile Include="二叉树相关面试题_非查找树.cpp" />
     <ClCompile Include="单链表相关面试题.cpp" />
     <ClCompile Include="面试题14.cpp" />
@@ -127,6 +128,10 @@
     <ClCompile Include="面试题11.cpp" />
     <ClCompile Include="面试题12.cpp" />
     <ClCompile Include="面试题20.cpp" />
+    <ClCompile Include="面试题22.cpp" />
+    <ClCompile Include="面试题28.cpp" />
+    <ClCompile Include="面试题29.cpp" />
+    <ClCompile Include="面试题30cpp.cpp" />
     <ClCompile Include="面试题一.cpp" />
     <ClCompile Include="面试题九.cpp" />
     <ClCompile Include="面试题六.cpp" />

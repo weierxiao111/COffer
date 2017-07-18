@@ -1,10 +1,12 @@
-﻿生成启动时间为 2017-07-17 15:27:33。
+﻿生成启动时间为 2017-07-18 23:39:54。
      1>项目“F:\COffer\剑指offer\剑指offer\剑指offer.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         D:\VS15\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt "面试题20.cpp"
-         面试题20.cpp
+         D:\VS15\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt "面试题29.cpp"
+         面试题29.cpp
+     1>f:\coffer\剑指offer\剑指offer\面试题29.cpp(34): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
        Link:
          D:\VS15\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\COffer\剑指offer\Debug\剑指offer.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"F:\COffer\剑指offer\Debug\剑指offer.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\COffer\剑指offer\Debug\剑指offer.lib" /MACHINE:X86 Debug\test.obj
+         "Debug\二叉搜索树相关题目.obj"
          "Debug\二叉树相关面试题_非查找树.obj"
          "Debug\单链表相关面试题.obj"
          "Debug\面试题14.obj"
@@ -12,6 +14,9 @@
          "Debug\面试题11.obj"
          "Debug\面试题12.obj"
          "Debug\面试题20.obj"
+         "Debug\面试题22.obj"
+         "Debug\面试题28.obj"
+         "Debug\面试题29.obj"
          "Debug\面试题一.obj"
          "Debug\面试题九.obj"
          "Debug\面试题六.obj"
@@ -21,4 +26,4 @@
 
 已成功生成。
 
-已用时间 00:00:02.60
+已用时间 00:00:02.34

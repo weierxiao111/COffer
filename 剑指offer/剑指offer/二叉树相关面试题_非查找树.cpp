@@ -225,11 +225,70 @@ void MirrorTree(TreeNode<int>* root)
 		MirrorTree(root->_pRight);
 	}
 }
-//
+
+void LeverPrint(TreeNode<int> *root)
+{
+	if (NULL == root)
+		return;
+	queue<TreeNode<int> *> q;
+	q.push(root);
+	while (!q.empty())
+	{
+		TreeNode<int> *temp = q.front();
+		if (temp->_pLeft)
+		{
+			q.push(temp->_pLeft);
+		}
+		if (temp->_pRight)
+		{
+			q.push(temp->_pRight);
+		}
+		q.pop();
+		cout << temp->_value << " ";
+	}
+	cout << endl;
+}
+
+void _FindPath(TreeNode<int> *root, int K, vector<int> &v, int cursum)
+{
+	if (NULL == root)
+		return;
+	cursum += root->_value;
+	v.push_back(root->_value);
+	bool isleaf = (root->_pLeft == NULL) && (root->_pRight == NULL);
+	if (isleaf && (cursum == K))
+	{
+		vector<int>::iterator it = v.begin();
+		for (; it != v.begin(); ++it)
+		{
+			cout << *it << " ";
+		}
+		cout << endl;
+		return;
+	}
+	if (root->_pLeft != NULL)
+		_FindPath(root->_pLeft, K, v, cursum);
+	if (root->_pRight != NULL)
+		_FindPath(root->_pRight, K, v, cursum);
+	v.pop_back();
+}
+
+void FindPath(TreeNode<int>  *root, int K)
+{
+	if (NULL == root)
+		return;
+	vector<int> v;
+	int cursum = 0;
+	_FindPath(root, K, v, cursum);
+}
+
+
+
 //int main()
 //{
 //	int arr[] = {8,8,9,0,0,2,4,0,0,7,0,0,7};
 //	BinaryTree<int> tree1(arr, sizeof(arr)/sizeof(arr[0]), 0);
+//	LeverPrint(tree1.GetRoot());
 //	MirrorTree(tree1.GetRoot());
 //	int arr2[] = {8,2};
 //	BinaryTree<int> tree2(arr2, sizeof(arr2) / sizeof(arr2[0]), 0);
