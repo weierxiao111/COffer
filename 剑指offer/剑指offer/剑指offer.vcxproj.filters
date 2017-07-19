@@ -63,7 +63,10 @@
     <ClCompile Include="面试题29.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="面试题30cpp.cpp">
+    <ClCompile Include="面试题30.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="面试题32.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

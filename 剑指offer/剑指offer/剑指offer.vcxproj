@@ -131,7 +131,8 @@
     <ClCompile Include="面试题22.cpp" />
     <ClCompile Include="面试题28.cpp" />
     <ClCompile Include="面试题29.cpp" />
-    <ClCompile Include="面试题30cpp.cpp" />
+    <ClCompile Include="面试题30.cpp" />
+    <ClCompile Include="面试题32.cpp" />
     <ClCompile Include="面试题一.cpp" />
     <ClCompile Include="面试题九.cpp" />
     <ClCompile Include="面试题六.cpp" />

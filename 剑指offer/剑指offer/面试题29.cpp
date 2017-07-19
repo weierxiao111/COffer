@@ -3,19 +3,20 @@ using namespace std;
 
 int partition(int *arr, int left, int right)
 {
-	int start = left - 1;
-	for (int i = left; i < right; ++i)
+	int slow = left - 1;
+	for (int fast = left; fast < right; ++fast)
 	{
-		if (arr[i] < arr[right])
+		if (arr[fast] < arr[right])
 		{
-			++i;
-			if (i != start)
-				swap(arr[i], arr[start]);
+			slow++;
+			if (slow != fast)
+				swap(arr[slow], arr[fast]);
 		}
 	}
-	++start;
-	swap(arr[start], arr[right]);
-	return start;
+	++slow;
+	swap(arr[slow], arr[right]);
+
+	return slow;
 }
 
 bool invalied = false;
