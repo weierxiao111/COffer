@@ -282,6 +282,11 @@ void FindPath(TreeNode<int>  *root, int K)
 	_FindPath(root, K, v, cursum);
 }
 
+//50题
+//1）如果是查找树，只需要判断大小值是否在某节点值得两边
+//2）如果是非查找树，有父节点相当于求链表的交点，
+//3）没有父节点，先寻找路径（用栈），转化为求链表交点
+
 
 
 //int main()
